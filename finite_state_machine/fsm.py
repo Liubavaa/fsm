@@ -12,7 +12,7 @@ def prime(fn):
 
 
 class DayFSM:
-    """Class of fsm of day"""
+    """Class of fsm of the day"""
     def __init__(self):
         self.work = self._create_work()
         self.sleep = self._create_sleep()
@@ -41,12 +41,12 @@ class DayFSM:
             randomm = random.random()
             if randomm * hour < 0.8:
                 self.current_state = self.work
-                print('Ohh, I love dskr so much...')
+                print('Ohh, I love discrete so much...')
             elif hour > 8 and description:
                 word = random.choice(description)
                 description.remove(word)
                 self.current_state = self.work
-                print(f'new dskr laba is just {word}')
+                print(f'new discrete lab is just {word}')
             elif hour in range(19, 21):
                 print('time to eat')
                 self.current_state = self.eat
@@ -149,14 +149,13 @@ def grep_regex(hours):
     """Send current hour to FSM"""
     fsm = DayFSM()
     for hour in hours:
-        print('\n')
-        print('Hour: ', hour)
+        print('\n', 'Hour: ', hour)
         fsm.send(hour)
         if not fsm.alive():
-            print("I didn't even live to the end of the day(")
+            print("\n", "I didn't even live to the end of the day(")
             break
         if hour == 24:
-            print('Hoorey! I live to the end of the day)')
+            print("\n", 'Hoorey! I live to the end of the day)')
 
 
 if __name__ == '__main__':
